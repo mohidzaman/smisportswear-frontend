@@ -1,0 +1,1 @@
+var e=`/smisportswear-frontend/assets/hero_main-C9KHFq1C.webp`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/smisportswear-frontend/assets/cat_teamwear-DcBUUQiE.webp`,t=`/smisportswear-frontend/assets/cat_training-D9_ZpYQI.webp`;export{e as n,t};

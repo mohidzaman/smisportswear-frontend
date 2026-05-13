@@ -1,0 +1,1 @@
+var e=`/smisportswear-frontend/assets/mfg_cut_sew-B0IQ7_x_.webp`;export{e as t};

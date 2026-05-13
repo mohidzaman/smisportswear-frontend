@@ -1,0 +1,1 @@
+var e=`/smisportswear-frontend/assets/mfg_sublimation-D6eLqXKt.webp`,t=`/smisportswear-frontend/assets/mfg_embroidery-DEXpQG1R.webp`;export{e as n,t};
