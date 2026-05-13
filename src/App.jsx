@@ -118,7 +118,7 @@ function AppContent() {
           <Route path="/admin/login" element={<Suspense fallback={<PageLoading />}><AdminLogin setAuth={setAuth} /></Suspense>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoading />}><AdminLayout /></Suspense>}>
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="leads" element={<LeadManagement />} />
             <Route path="products" element={<ProductManagement />} />
             <Route path="gallery" element={<GalleryManagement />} />
