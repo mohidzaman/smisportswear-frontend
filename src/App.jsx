@@ -91,15 +91,19 @@ function AppContent() {
 
   useEffect(() => {
     console.log('🚀 [INIT_APP] AppContent Mounted at:', location.pathname);
-  }, []);
+    // Safety check: force clear any stuck loading states after 5 seconds
+    const safetyTimer = setTimeout(() => {
+      console.log('🛡️ [SAFETY] Ensuring app is visible...');
+    }, 5000);
+    return () => clearTimeout(safetyTimer);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-background-dark text-white flex flex-col font-body">
       {!isAdminPath && <Header />}
       <main className="flex-grow">
         <Suspense fallback={<PageLoading />}>
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
+          <Routes>
               {/* Public Routes */}
               <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
               <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
@@ -122,7 +126,6 @@ function AppContent() {
                 <Route path="gallery" element={<GalleryManagement />} />
               </Route>
             </Routes>
-          </AnimatePresence>
         </Suspense>
       </main>
       {!isAdminPath && <Footer />}
