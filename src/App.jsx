@@ -6,8 +6,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
-// Public Pages (Lazy Loaded)
-const Home = lazy(() => import('./pages/Home'));
+// Public Pages
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));
 const Manufacturing = lazy(() => import('./pages/Manufacturing'));
@@ -101,32 +101,29 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-background-dark text-white flex flex-col font-body">
       {!isAdminPath && <Header />}
+      <TopProgressBar />
       <main className="flex-grow">
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-              <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-              <Route path="/products" element={<PageWrapper><Products /></PageWrapper>} />
-              <Route path="/manufacturing" element={<PageWrapper><Manufacturing /></PageWrapper>} />
-              <Route path="/customization" element={<PageWrapper><Customization /></PageWrapper>} />
-              <Route path="/how-to-order" element={<PageWrapper><HowToOrder /></PageWrapper>} />
-              <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
-              <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-              
-              {/* Admin Auth Route */}
-              <Route path="/admin/login" element={<AdminLogin setAuth={setAuth} />} />
-
-              {/* Protected Admin Routes */}
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<Navigate to="/admin/dashboard" replace />} />
-                <Route path="dashboard" element={<AdminDashboard />} />
-                <Route path="leads" element={<LeadManagement />} />
-                <Route path="products" element={<ProductManagement />} />
-                <Route path="gallery" element={<GalleryManagement />} />
-              </Route>
-            </Routes>
-        </Suspense>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="/about" element={<Suspense fallback={<PageLoading />}><PageWrapper><About /></PageWrapper></Suspense>} />
+          <Route path="/products" element={<Suspense fallback={<PageLoading />}><PageWrapper><Products /></PageWrapper></Suspense>} />
+          <Route path="/manufacturing" element={<Suspense fallback={<PageLoading />}><PageWrapper><Manufacturing /></PageWrapper></Suspense>} />
+          <Route path="/customization" element={<Suspense fallback={<PageLoading />}><PageWrapper><Customization /></PageWrapper></Suspense>} />
+          <Route path="/how-to-order" element={<Suspense fallback={<PageLoading />}><PageWrapper><HowToOrder /></PageWrapper></Suspense>} />
+          <Route path="/gallery" element={<Suspense fallback={<PageLoading />}><PageWrapper><Gallery /></PageWrapper></Suspense>} />
+          <Route path="/contact" element={<Suspense fallback={<PageLoading />}><PageWrapper><Contact /></PageWrapper></Suspense>} />
+          
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<Suspense fallback={<PageLoading />}><AdminLogin setAuth={setAuth} /></Suspense>} />
+          <Route path="/admin" element={<Suspense fallback={<PageLoading />}><AdminLayout /></Suspense>}>
+            <Route index element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="leads" element={<LeadManagement />} />
+            <Route path="products" element={<ProductManagement />} />
+            <Route path="gallery" element={<GalleryManagement />} />
+          </Route>
+        </Routes>
       </main>
       {!isAdminPath && <Footer />}
       {!isAdminPath && <FloatingWhatsApp />}
