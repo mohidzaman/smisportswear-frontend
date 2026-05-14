@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Target, Eye, Users, Factory, Award, Globe2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SkeletonHero, SkeletonText } from '../components/Skeleton';
