@@ -42,7 +42,7 @@ const Header = () => {
           : 'bg-transparent py-4'
         }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0 group flex items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -52,13 +52,13 @@ const Header = () => {
             <img
               src={logoImg}
               alt="SMI Sportswear"
-              className="h-32 w-auto object-contain opacity-100 transition-opacity duration-300"
+              className="h-20 md:h-32 w-auto object-contain opacity-100 transition-all duration-300"
             />
           </motion.div>
         </Link>
 
         {/* Desktop Nav - Centered */}
-        <nav className="hidden lg:flex items-center gap-x-8 px-8">
+        <nav className="hidden lg:flex items-center gap-x-6 xl:gap-x-8 px-4 xl:px-8">
           {menuItems.map((item, index) => (
             <motion.div
               key={item.path}
@@ -69,7 +69,7 @@ const Header = () => {
             >
               <Link
                 to={item.path}
-                className={`nav-link group flex flex-col items-center whitespace-nowrap transition-colors duration-500 ${isActive(item.path) ? 'text-primary' : 'text-white/40 hover:text-white'
+                className={`nav-link group flex flex-col items-center whitespace-nowrap transition-colors duration-500 text-[9px] xl:text-[10px] ${isActive(item.path) ? 'text-primary' : 'text-white/40 hover:text-white'
                   }`}
               >
                 <motion.span 
@@ -93,21 +93,21 @@ const Header = () => {
         </nav>
 
         {/* Action Group - Right */}
-        <div className="hidden lg:flex items-center gap-x-5">
+        <div className="hidden lg:flex items-center gap-x-4 xl:gap-x-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center gap-x-5"
+            className="flex items-center gap-x-4 xl:gap-x-5"
           >
             <Link
               to="/contact"
-              className={`p-2.5 rounded-xl border transition-all duration-500 group/icon hover:scale-110 active:scale-95 ${isActive('/contact')
+              className={`p-2 xl:p-2.5 rounded-xl border transition-all duration-500 group/icon hover:scale-110 active:scale-95 ${isActive('/contact')
                   ? 'text-primary border-primary/30 bg-primary/5'
                   : 'text-white/40 border-white/5 hover:border-white/20 hover:bg-white/5'
                 }`}
             >
-              <Phone size={18} className="group-hover/icon:text-primary transition-colors duration-500" />
+              <Phone size={16} className="xl:w-[18px] xl:h-[18px] group-hover/icon:text-primary transition-colors duration-500" />
             </Link>
 
             <motion.div
@@ -116,7 +116,7 @@ const Header = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="flex-shrink-0"
             >
-              <Link to="/contact" className="btn-primary whitespace-nowrap inline-block">
+              <Link to="/contact" className="btn-primary whitespace-nowrap inline-block px-6 xl:px-10 py-3 xl:py-4 text-[9px] xl:text-[10px]">
                 GET QUOTE
               </Link>
             </motion.div>
@@ -130,7 +130,7 @@ const Header = () => {
           className="lg:hidden text-white p-2.5 bg-white/5 border border-white/5 rounded-2xl hover:bg-white/10 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </motion.button>
       </div>
 
@@ -143,29 +143,29 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[110]"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="lg:hidden fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-background-dark border-l border-white/10 z-50 p-8 flex flex-col shadow-2xl"
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-background-dark border-l border-white/10 z-[120] p-6 md:p-8 flex flex-col shadow-2xl"
             >
-              <div className="flex justify-between items-center mb-12">
-                <img src={logoImg} alt="SMI Sportswear" className="h-24 w-auto object-contain opacity-90" />
-                <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/5 rounded-full transition-colors">
-                  <X size={24} />
+              <div className="flex justify-between items-center mb-10">
+                <img src={logoImg} alt="SMI Sportswear" className="h-16 md:h-20 w-auto object-contain opacity-90" />
+                <button onClick={() => setIsOpen(false)} className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors">
+                  <X size={20} />
                 </button>
               </div>
 
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-1 overflow-y-auto no-scrollbar py-4">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.path}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     <Link
                       to={item.path}
@@ -175,34 +175,34 @@ const Header = () => {
                         }`}
                       onClick={() => setIsOpen(false)}
                     >
-                      <span className="text-lg font-black uppercase tracking-tight">{item.name}</span>
+                      <span className="text-base md:text-lg font-black uppercase tracking-tight">{item.name}</span>
                       <ChevronRight size={18} className={isActive(item.path) ? 'opacity-100' : 'opacity-20'} />
                     </Link>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-auto space-y-4">
-                <Link
-                  to="/contact"
-                  className="flex items-center justify-between p-5 bg-white/5 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group"
+              <div className="mt-auto pt-8 space-y-4">
+                <a
+                  href="tel:+923425744310"
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-primary/20 transition-all group"
                   onClick={() => setIsOpen(false)}
                 >
                   <div className="flex items-center space-x-4">
                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
-                      <Phone size={20} />
+                      <Phone size={18} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Support</p>
-                      <p className="text-sm font-black uppercase tracking-tight">Contact Us</p>
+                      <p className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Call Us</p>
+                      <p className="text-xs font-black uppercase tracking-tight">+92 342 5744310</p>
                     </div>
                   </div>
-                  <ChevronRight size={20} className="text-white/20 group-hover:text-primary transition-colors" />
-                </Link>
+                  <ChevronRight size={16} className="text-white/20 group-hover:text-primary transition-colors" />
+                </a>
 
                 <Link
                   to="/contact"
-                  className="btn-primary w-full text-center block"
+                  className="btn-primary w-full text-center block py-5"
                   onClick={() => setIsOpen(false)}
                 >
                   GET QUOTE

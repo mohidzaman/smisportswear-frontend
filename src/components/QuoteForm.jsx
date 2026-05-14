@@ -86,25 +86,29 @@ const QuoteForm = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="glass-apple p-12 md:p-16 rounded-[3.5rem] text-center"
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        className="glass-apple p-8 md:p-16 rounded-[2rem] md:rounded-[3.5rem] text-center"
       >
         <motion.div 
           initial={{ scale: 0, rotate: -45 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: "spring", damping: 15, stiffness: 200, delay: 0.2 }}
-          className="flex justify-center mb-10"
+          className="flex justify-center mb-8 md:mb-10"
         >
-          <div className="p-8 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_30px_rgba(193,18,31,0.2)]">
-            <CheckCircle size={80} className="text-primary" />
+          <div className="p-6 md:p-8 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_30px_rgba(193,18,31,0.2)]">
+            <CheckCircle size={48} md:size={80} className="text-primary" />
           </div>
         </motion.div>
-        <h3 className="text-4xl font-black text-white mb-6 uppercase tracking-tighter italic">REQUEST RECEIVED</h3>
-        <p className="text-white/40 mb-12 font-medium italic max-w-sm mx-auto">Our production manager will contact you within 24 hours via <span className="text-white">WhatsApp</span> or Email.</p>
+        <h3 className="text-2xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase tracking-tighter italic">REQUEST RECEIVED</h3>
+        <p className="text-sm md:text-white/40 mb-8 md:mb-12 font-medium italic max-w-sm mx-auto">Our production manager will contact you within 24 hours via <span className="text-white">WhatsApp</span> or Email.</p>
         <motion.button 
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setSubmitted(false)} 
-          className="btn-secondary px-12 border-white/5 italic"
+          className="btn-secondary px-10 md:px-12 border-white/5 italic w-full sm:w-auto"
         >
           SEND ANOTHER REQUEST
         </motion.button>
@@ -119,58 +123,58 @@ const QuoteForm = () => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       onSubmit={handleSubmit} 
-      className="glass-apple p-10 md:p-16 rounded-[4rem] space-y-10 shadow-2xl relative overflow-hidden"
+      className="glass-apple p-6 md:p-16 rounded-[2rem] md:rounded-[4rem] space-y-8 md:space-y-10 shadow-2xl relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[80px]" />
       
-      <div className="mb-12">
-        <h4 className="text-4xl font-black text-white uppercase tracking-tighter italic mb-4">Get Your <br /><span className="text-primary italic">Custom Quote</span></h4>
-        <p className="text-sm font-medium text-white/40 italic mb-10">Tell us what you need — we’ll handle the rest.</p>
+      <div className="mb-8 md:mb-12">
+        <h4 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter italic mb-3 md:mb-4">Get Your <br /><span className="text-primary italic">Custom Quote</span></h4>
+        <p className="text-xs md:text-sm font-medium text-white/40 italic mb-8 md:mb-10">Tell us what you need — we’ll handle the rest.</p>
         
-        <div className="space-y-4 pt-6 border-t border-white/5">
+        <div className="space-y-3 md:space-y-4 pt-6 border-t border-white/5">
           {[
             "Fast response within 24 hours",
             "Free consultation",
             "Custom design support included"
           ].map((point, i) => (
             <div key={i} className="flex items-center space-x-3 text-white/30">
-              <CheckCircle size={14} className="text-primary" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] italic">{point}</span>
+              <CheckCircle size={14} className="text-primary flex-shrink-0" />
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] italic">{point}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Full Name</label>
-          <input type="text" name="name" required className="input-premium py-4" placeholder="E.G. ROBERT CHEN" />
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Full Name</label>
+          <input type="text" name="name" required className="input-premium py-3 md:py-4" placeholder="E.G. ROBERT CHEN" />
         </motion.div>
         <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Company / Club</label>
-          <input type="text" name="company" required className="input-premium py-4" placeholder="E.G. NEW YORK ATHLETIC CLUB" />
-        </motion.div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Country</label>
-          <input type="text" name="country" required className="input-premium py-4" placeholder="EX: UNITED STATES" />
-        </motion.div>
-        <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">WhatsApp Number</label>
-          <input type="tel" name="whatsapp" required className="input-premium py-4" placeholder="+1 000 000 0000" />
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Company / Club</label>
+          <input type="text" name="company" required className="input-premium py-3 md:py-4" placeholder="E.G. NEW YORK ATHLETIC CLUB" />
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Email Address</label>
-          <input type="email" name="email" required className="input-premium py-4" placeholder="INFO@ELITE.COM" />
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Country</label>
+          <input type="text" name="country" required className="input-premium py-3 md:py-4" placeholder="EX: UNITED STATES" />
         </motion.div>
         <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Product Type</label>
-          <select name="productType" required className="input-premium py-4 appearance-none">
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">WhatsApp Number</label>
+          <input type="tel" name="whatsapp" required className="input-premium py-3 md:py-4" placeholder="+1 000 000 0000" />
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <motion.div variants={itemVariants}>
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Email Address</label>
+          <input type="email" name="email" required className="input-premium py-3 md:py-4" placeholder="INFO@ELITE.COM" />
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Product Type</label>
+          <select name="productType" required className="input-premium py-3 md:py-4 appearance-none">
             <option value="">-- PLEASE SELECT --</option>
             <option value="teamwear">TEAMWEAR</option>
             <option value="training">TRAINING WEAR</option>
@@ -180,26 +184,26 @@ const QuoteForm = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         <motion.div variants={itemVariants}>
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Quantity (MOQ 10+)</label>
-          <input type="number" name="quantity" min="10" required className="input-premium py-4" placeholder="50" />
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Quantity (MOQ 10+)</label>
+          <input type="number" name="quantity" min="10" required className="input-premium py-3 md:py-4" placeholder="50" />
         </motion.div>
         <motion.div variants={itemVariants} className="relative">
-          <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Upload Design (Concept)</label>
+          <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Upload Design (Concept)</label>
           <div className="relative group">
             <input type="file" name="uploadedFile" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
-            <div className="w-full bg-white/[0.03] border border-dashed border-white/10 rounded-2xl py-6 px-10 flex items-center justify-between group-hover:border-primary/40 group-hover:bg-white/[0.05] transition-all duration-500">
-              <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em] italic">Browse Design...</span>
-              <UploadCloud size={20} className="text-white/20 group-hover:text-primary transition-colors duration-500" />
+            <div className="w-full bg-white/[0.03] border border-dashed border-white/10 rounded-2xl py-4 md:py-6 px-6 md:px-10 flex items-center justify-between group-hover:border-primary/40 group-hover:bg-white/[0.05] transition-all duration-500">
+              <span className="text-[8px] md:text-[10px] font-black text-white/20 uppercase tracking-[0.1em] md:tracking-[0.2em] italic truncate pr-4">Browse Design...</span>
+              <UploadCloud size={18} md:size={20} className="text-white/20 group-hover:text-primary transition-colors duration-500 flex-shrink-0" />
             </div>
           </div>
         </motion.div>
       </div>
 
       <motion.div variants={itemVariants}>
-        <label className="block text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-4 italic">Project Message</label>
-        <textarea name="message" rows="4" className="input-premium py-5 px-6 resize-none" placeholder="TELL US ABOUT YOUR PROJECT REQUIREMENTS..."></textarea>
+        <label className="block text-[8px] md:text-[10px] font-black text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-2 md:mb-4 italic">Project Message</label>
+        <textarea name="message" rows="4" className="input-premium py-4 md:py-5 px-6 resize-none" placeholder="TELL US ABOUT YOUR PROJECT REQUIREMENTS..."></textarea>
       </motion.div>
 
       <motion.div variants={itemVariants}>
@@ -208,13 +212,13 @@ const QuoteForm = () => {
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={loading}
-          className="w-full btn-primary flex items-center justify-between px-12 py-6 group disabled:opacity-50 shadow-premium"
+          className="w-full btn-primary flex items-center justify-between px-8 md:px-12 py-4 md:py-6 group disabled:opacity-50 shadow-premium"
         >
-          <span className="tracking-[0.5em] font-black italic uppercase">Submit Quote</span>
+          <span className="tracking-[0.3em] md:tracking-[0.5em] font-black italic uppercase text-[10px] md:text-sm">Submit Quote</span>
           {loading ? (
-            <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+            <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
           ) : (
-            <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 ease-apple" />
+            <Send size={18} md:size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 ease-apple flex-shrink-0" />
           )}
         </motion.button>
       </motion.div>
