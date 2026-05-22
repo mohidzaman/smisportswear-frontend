@@ -13,7 +13,7 @@ const FAQAccordian = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const faqs = [
-    { q: "What is your Minimum Order Quantity (MOQ)?", a: "We are optimized for clubs and startups, offering MOQs as low as 10 units per design for custom apparel." },
+    { q: "What is your Minimum Order Quantity (MOQ)?", a: "We are optimized for clubs and startups, offering MOQs as low as 50 units per design for custom apparel." },
     { q: "How long does global shipping take?", a: "Typically 5-8 business days for air freight delivery to the USA, UK, and Europe once production and quality control are complete." },
     { q: "Can we get a physical sample first?", a: "Yes. We always recommend a tech-sample phase to confirm sizing, fabric feel, and print quality before committing to bulk production." },
     { q: "Do you offer private label services?", a: "Absolutely. We specialize in custom neck labels, hang tags, and high-quality bespoke branding solutions for growing sports apparel brands." }
@@ -229,7 +229,7 @@ const Home = () => {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16"
           >
             {[
-              { icon: <Shield size={32} />, title: "Low Minimum Order Quantity", desc: "Start from 10 units" },
+              { icon: <Shield size={32} />, title: "Low Minimum Order Quantity", desc: "Start from 50 units" },
               { icon: <Globe size={32} />, title: "Worldwide Shipping", desc: "Reliable global shipping" },
               { icon: <Paintbrush size={32} />, title: "Custom Design Support", desc: "Sample to door in days" },
               { icon: <Zap size={32} />, title: "Premium Performance Fabric", desc: "Beat middleman costs" }
