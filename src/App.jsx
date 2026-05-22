@@ -90,7 +90,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-background-dark text-white flex flex-col font-body">
       {!isAdminPath && <Header />}
-      <TopProgressBar />
+      <TopProgressBar key={location.pathname} />
       <main className="flex-grow">
         <Routes>
           {/* Public Routes */}

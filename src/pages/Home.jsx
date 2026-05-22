@@ -79,19 +79,19 @@ const Home = () => {
   const appleEase = [0.22, 1, 0.36, 1];
 
   const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 1, ease: appleEase }
+    viewport: { once: true, margin: "-30px" },
+    transition: { duration: 0.6, ease: appleEase }
   };
 
   const staggerContainer = {
     initial: { opacity: 0 },
     whileInView: {
       opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 }
     },
-    viewport: { once: true, margin: "-100px" }
+    viewport: { once: true, margin: "-30px" }
   };
 
   if (loading) {
