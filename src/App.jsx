@@ -65,7 +65,7 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
       <AppContent />
     </Router>
@@ -76,27 +76,16 @@ function AppContent() {
   const location = useLocation();
   const isAdminPath = location.pathname.startsWith('/admin');
   
-  // STRICT_DEBUG: Safe auth state initialization
+  // Safe auth state initialization
   const [auth, setAuth] = useState(() => {
     try {
       const stored = localStorage.getItem('adminInfo');
-      const parsed = stored ? JSON.parse(stored) : null;
-      console.log('🛡️ [INIT_AUTH] Stored Info Trace:', parsed ? 'Exists' : 'None');
-      return parsed;
+      return stored ? JSON.parse(stored) : null;
     } catch (e) {
       console.error('⚠️ [INIT_AUTH] FAILED parsing adminInfo:', e.message);
       return null;
     }
   });
-
-  useEffect(() => {
-    console.log('🚀 [INIT_APP] AppContent Mounted at:', location.pathname);
-    // Safety check: force clear any stuck loading states after 5 seconds
-    const safetyTimer = setTimeout(() => {
-      console.log('🛡️ [SAFETY] Ensuring app is visible...');
-    }, 5000);
-    return () => clearTimeout(safetyTimer);
-  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-background-dark text-white flex flex-col font-body">
@@ -127,8 +116,8 @@ function AppContent() {
       </main>
       {!isAdminPath && <Footer />}
       {!isAdminPath && <FloatingWhatsApp />}
-      <Analytics />
-      <SpeedInsights />
+      <Analytics debug={false} />
+      <SpeedInsights debug={false} />
     </div>
   );
 }
