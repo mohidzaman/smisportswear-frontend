@@ -127,13 +127,13 @@ const Home = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: appleEase }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left relative z-20"
           >
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 md:mb-10 mx-auto lg:mx-0"
+              className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 md:mb-10 mx-auto lg:mx-0 max-w-full"
             >
               <Zap size={12} className="fill-primary" />
               <div className="flex divide-x divide-white/10 overflow-x-auto no-scrollbar">
