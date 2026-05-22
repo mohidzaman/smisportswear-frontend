@@ -133,15 +133,22 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] mb-8 md:mb-10 mx-auto lg:mx-0 max-w-full"
+              className="flex flex-wrap items-center gap-2 md:gap-3 mb-8 md:mb-10 justify-center lg:justify-start max-w-full"
             >
-              <Zap size={12} className="fill-primary" />
-              <div className="flex divide-x divide-white/10 overflow-x-auto no-scrollbar">
-                <span className="px-2 md:px-4 whitespace-nowrap">LOW MOQ</span>
-                <span className="px-2 md:px-4 whitespace-nowrap">FAST PRODUCTION</span>
-                <span className="px-2 md:px-4 whitespace-nowrap">EXPORT QUALITY</span>
-                <span className="px-2 md:px-4 whitespace-nowrap">WORLDWIDE SHIPPING</span>
-              </div>
+              {[
+                "LOW MOQ",
+                "FAST PRODUCTION",
+                "EXPORT QUALITY",
+                "WORLDWIDE SHIPPING"
+              ].map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="inline-flex items-center space-x-2 px-3 md:px-4 py-2 rounded-xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.3em] shadow-sm hover:bg-white/[0.06] transition-all duration-300"
+                >
+                  <Zap size={10} className="fill-primary text-primary flex-shrink-0 animate-pulse" />
+                  <span className="text-white/80">{item}</span>
+                </div>
+              ))}
             </motion.div>
             
             <h1 className="text-[clamp(2.5rem,10vw,5rem)] font-black text-white leading-[0.9] mb-8 md:mb-10 uppercase tracking-tighter max-w-2xl mx-auto lg:mx-0">
