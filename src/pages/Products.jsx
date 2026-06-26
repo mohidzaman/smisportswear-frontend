@@ -166,13 +166,13 @@ const Products = () => {
                     </ul>
                   </div>
                   
-                  <motion.a 
+                  <motion.a
                     whileHover={{ x: 10 }}
-                    href="#quote" 
-                    className="btn-primary group/btn flex items-center justify-between px-8 md:px-12 py-4 md:py-6 rounded-xl md:rounded-[2rem]"
+                    href="/contact"
+                    className="btn-primary group/btn flex items-center justify-between px-8 md:px-12 py-4 md:py-6 rounded-xl md:rounded-[2rem] relative z-20"
                   >
                     <span className="font-black italic tracking-[0.2em] md:tracking-[0.4em] text-[10px]">SPECIFICATIONS</span>
-                    <ArrowRight size={18} md:size={20} className="group-hover/btn:translate-x-3 transition-transform duration-500 ease-apple" />
+                    <ArrowRight size={18} className="group-hover/btn:translate-x-3 transition-transform duration-500 ease-apple" />
                   </motion.a>
                 </div>
               </motion.div>
