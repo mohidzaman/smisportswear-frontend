@@ -133,7 +133,7 @@ const Footer = () => {
           <span className="text-white/10">|</span>{' '}
           Built by{' '}
           <a
-            href="https://servsa.com"
+            href="https://servsa.online"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary/60 hover:text-primary transition-colors duration-300"
