@@ -12,11 +12,12 @@ const ScrollToTop = () => {
       // Use requestAnimationFrame to ensure the scroll command runs after the DOM updates
       // and any layout adjustments or page wrappers have mounted.
       const handleScroll = () => {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'instant', // 'instant' bypasses CSS scroll-behavior: smooth to prevent jumpiness/conflicts
-        });
+        // Temporarily disable CSS smooth scrolling for Safari/iOS compatibility
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = '';
+        }, 50);
       };
 
       // Run immediately and queue another frame just in case of lazy component rendering delay

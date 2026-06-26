@@ -31,13 +31,17 @@ const Header = () => {
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen]);
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[9000] will-change-transform transition-all duration-200 ${scrolled
+    <>
+      <header
+      className={`fixed top-0 left-0 right-0 z-[9000] transition-all duration-200 ${scrolled
           ? 'bg-background-dark/95 backdrop-blur-xl border-b border-white/10 py-1 shadow-2xl'
           : 'bg-transparent py-4'
         }`}
@@ -133,6 +137,7 @@ const Header = () => {
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </motion.button>
       </div>
+    </header>
 
       {/* Mobile Nav Drawer */}
       <AnimatePresence>
@@ -212,7 +217,7 @@ const Header = () => {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 

@@ -7,25 +7,25 @@ const TopProgressBar = () => {
   useEffect(() => {
     // Start progress sequence
     const sequence = async () => {
+      await controls.start({ opacity: 1, width: '0%', transition: { duration: 0 } });
       await controls.start({
-        width: '35%',
+        width: '40%',
         transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
       });
       await controls.start({
-        width: '75%',
-        transition: { duration: 8, ease: "linear" } // Slow crawl for perceived loading
+        width: '100%',
+        transition: { duration: 0.8, ease: "linear" } 
+      });
+      await controls.start({
+        opacity: 0,
+        transition: { duration: 0.4 }
       });
     };
     
     sequence();
 
-    // Fallback safety timeout
-    const safetyTimeout = setTimeout(() => {
-      controls.start({
-        width: '100%',
-        transition: { duration: 0.6 }
-      });
-    }, 15000);
+    // Fallback safety timeout is no longer needed since it completes, but keeping for structure
+    const safetyTimeout = setTimeout(() => {}, 15000);
 
     return () => {
       clearTimeout(safetyTimeout);
