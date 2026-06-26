@@ -26,7 +26,13 @@ const uploadRoutes = require('./routes/upload');
 const app = express();
 
 // Middleware - STRICT_DEBUG: Ensure body parsers are active
-app.use(cors());
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',')
+    : '*',
+  credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 

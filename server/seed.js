@@ -31,7 +31,7 @@ const seedAdmin = async () => {
     const admin = new Admin({
       username: 'admin',
       email: process.env.ADMIN_EMAIL || 'admin@smisportswears.com',
-      password: 'password123',
+      password: process.env.ADMIN_PASSWORD || 'password123',
       role: 'admin'
     });
 

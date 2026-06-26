@@ -15,7 +15,7 @@ const updateAdminEmail = async () => {
     
     const result = await Admin.updateMany(
       {}, // Assuming there's only one admin, or we update all admins to this email? Better to update username: 'admin'
-      { email: 'smisportswears@gmail.com' }
+      { email: process.env.ADMIN_EMAIL || 'smisportswears@gmail.com' }
     );
     
     console.log(`✅ Admin email updated. Modified ${result.modifiedCount} documents.`);
