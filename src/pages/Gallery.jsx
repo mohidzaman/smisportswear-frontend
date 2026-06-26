@@ -147,13 +147,13 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background-dark/98 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12 lg:p-24"
+            className="fixed inset-0 z-[9500] bg-background-dark/98 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12 lg:p-24"
             onClick={() => setSelectedImage(null)}
           >
             <motion.button 
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              className="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-primary transition-colors z-[110]"
+              className="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-primary transition-colors z-[9510]"
             >
               <X size={32} md:size={40} strokeWidth={3} />
             </motion.button>

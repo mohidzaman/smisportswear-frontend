@@ -27,6 +27,7 @@ const GalleryManagement = lazy(() => import('./admin/pages/GalleryManagement'));
 import { AnimatePresence, motion } from 'framer-motion';
 import TopProgressBar from './components/TopProgressBar';
 import PageWrapper from './components/PageWrapper';
+import ScrollToTop from './components/ScrollToTop';
 
 // Sleek Loading Fallback
 const PageLoading = () => (
@@ -54,14 +55,6 @@ const PageLoading = () => (
   </AnimatePresence>
 );
 
-// Scroll to top on route change
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
 
 function App() {
   return (

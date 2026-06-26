@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-200 ${scrolled
+      className={`fixed top-0 left-0 right-0 z-[9000] will-change-transform transition-all duration-200 ${scrolled
           ? 'bg-background-dark/95 backdrop-blur-xl border-b border-white/10 py-1 shadow-2xl'
           : 'bg-transparent py-4'
         }`}
@@ -143,14 +143,14 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[110]"
+              className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[9010]"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-background-dark border-l border-white/10 z-[120] p-6 md:p-8 flex flex-col shadow-2xl"
+              className="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-background-dark border-l border-white/10 z-[9020] p-6 md:p-8 flex flex-col shadow-2xl"
             >
               <div className="flex justify-between items-center mb-10">
                 <img src={logoImg} alt="SMI Sportswear" className="h-16 md:h-20 w-auto object-contain opacity-90" />
