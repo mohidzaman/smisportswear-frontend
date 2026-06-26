@@ -128,7 +128,19 @@ const Footer = () => {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 pt-10 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/20 italic space-y-4 md:space-y-0 relative z-10 text-center md:text-left">
-        <p>&copy; {new Date().getFullYear()} SMI Sportswear. Engineering Excellence.</p>
+        <p>
+          &copy; {new Date().getFullYear()} SMI Sportswear. Engineering Excellence.{' '}
+          <span className="text-white/10">|</span>{' '}
+          Built by{' '}
+          <a
+            href="https://servsa.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary/60 hover:text-primary transition-colors duration-300"
+          >
+            SERVSA
+          </a>
+        </p>
         <div className="flex space-x-6 md:space-x-8">
           <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
