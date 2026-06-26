@@ -3,6 +3,7 @@ import { Shield, Globe, Paintbrush, Zap, ArrowRight, CheckCircle, ChevronRight, 
 import { motion, AnimatePresence } from 'framer-motion';
 import QuoteForm from '../components/QuoteForm';
 import { SkeletonHero, SkeletonCard } from '../components/Skeleton';
+import PromoPopup from '../components/PromoPopup';
 import heroMain from '../assets/hero_main.webp';
 import catTeamwear from '../assets/cat_teamwear.webp';
 import catTraining from '../assets/cat_training.webp';
@@ -111,6 +112,7 @@ const Home = () => {
       animate={{ opacity: 1 }}
       className="flex flex-col bg-background-dark overflow-x-hidden"
     >
+      <PromoPopup />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20 md:py-32 lg:py-48 flex items-center min-h-[90vh] md:min-h-screen">
         <motion.div 
