@@ -36,6 +36,17 @@ const Header = () => {
     };
   }, [isOpen]);
 
+  // Auto-close mobile menu when resized to desktop viewport
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
+
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -148,7 +159,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[9010]"
+              className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9010]"
             />
             <motion.div
               initial={{ x: '100%' }}
