@@ -1,7 +1,7 @@
-export default async function sitemap() {
+export async function GET() {
   const baseUrl = 'https://smisportswears.site';
 
-  const routes = [
+  const staticRoutes = [
     { url: '', priority: 1.0, changefreq: 'daily' },
     { url: '/about', priority: 0.8, changefreq: 'monthly' },
     { url: '/contact', priority: 0.8, changefreq: 'monthly' },
@@ -29,47 +29,46 @@ export default async function sitemap() {
     { url: '/manufacturing-process', priority: 0.8, changefreq: 'monthly' }
   ];
 
-  const staticUrls = routes.map((route) => ({
-    url: `${baseUrl}${route.url}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: route.changefreq,
-    priority: route.priority,
-  }));
-
   let dynamicUrls = [];
 
   try {
-    // Fetch products dynamically
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
     const productsRes = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
     if (productsRes.ok) {
       const products = await productsRes.json();
       const productUrls = products.map((product) => ({
-        url: `${baseUrl}/products/${product._id}`, // Assuming _id is used
+        url: `/products/${product._id}`, // Assuming _id is used
         lastModified: product.updatedAt || product.createdAt || new Date().toISOString(),
-        changeFrequency: 'weekly',
+        changefreq: 'weekly',
         priority: 0.7,
       }));
       dynamicUrls.push(...productUrls);
     }
-
-    // Example for fetching blogs (if implemented later)
-    /*
-    const blogsRes = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
-    if (blogsRes.ok) {
-      const blogs = await blogsRes.json();
-      const blogUrls = blogs.map((blog) => ({
-        url: `${baseUrl}/blog/${blog.slug}`,
-        lastModified: blog.updatedAt || blog.createdAt || new Date().toISOString(),
-        changeFrequency: 'monthly',
-        priority: 0.6,
-      }));
-      dynamicUrls.push(...blogUrls);
-    }
-    */
   } catch (error) {
     console.error('Error fetching dynamic sitemap URLs:', error);
   }
 
-  return [...staticUrls, ...dynamicUrls];
+  const allUrls = [...staticRoutes, ...dynamicUrls];
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allUrls
+  .map(
+    (route) => `  <url>
+    <loc>${baseUrl}${route.url}</loc>
+    <lastmod>${route.lastModified || new Date().toISOString()}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority.toFixed(1)}</priority>
+  </url>`
+  )
+  .join('\n')}
+</urlset>`;
+
+  return new Response(sitemapXml, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate',
+    },
+  });
 }
