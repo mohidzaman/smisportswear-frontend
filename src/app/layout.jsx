@@ -26,6 +26,15 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION,
+    other: {
+      'facebook-domain-verification': process.env.NEXT_PUBLIC_FACEBOOK_DOMAIN_VERIFICATION,
+      'p:domain_verify': process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
