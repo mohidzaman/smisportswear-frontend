@@ -1,15 +1,16 @@
+'use client';
+
 import React, { useState } from 'react';
 import API from '../../api/axios';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { Lock, User, ShieldAlert } from 'lucide-react';
-
 
 const AdminLogin = ({ setAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const AdminLogin = ({ setAuth }) => {
       const { data } = await API.post('/admin/login', { username, password });
       localStorage.setItem('adminInfo', JSON.stringify(data));
       if (setAuth) setAuth(data);
-      navigate('/admin/dashboard');
+      router.push('/admin/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Check credentials.');
     } finally {

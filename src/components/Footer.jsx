@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoImg from '../assets/logo.png';
@@ -30,9 +32,9 @@ const Footer = () => {
         className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20 mb-16 md:mb-24 relative z-10"
       >
         <motion.div variants={itemVariants} className="flex flex-col items-center sm:items-start text-center sm:text-left">
-          <Link to="/" className="mb-8 block group">
+          <Link href="/" className="mb-8 block group">
             <img 
-              src={logoImg} 
+              src={logoImg.src || logoImg} 
               alt="SMI Sportswear" 
               className="h-20 md:h-28 w-auto object-contain opacity-100 transition-all duration-300" 
             />
@@ -54,7 +56,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-white/20 transition-colors"
               >
-                <social.Icon size={20} md:size={22} />
+                <social.Icon size={20} />
               </motion.a>
             ))}
           </div>
@@ -64,14 +66,14 @@ const Footer = () => {
           <h4 className="text-[9px] md:text-[10px] font-black text-white uppercase mb-8 md:mb-10 tracking-[0.3em] md:tracking-[0.4em] italic opacity-50">Navigation</h4>
           <ul className="space-y-4 md:space-y-6 text-xs md:text-sm font-bold uppercase tracking-widest italic">
             {[
-              { label: "Home", to: "/" },
-              { label: "Products", to: "/products" },
-              { label: "Manufacturing", to: "/manufacturing" },
-              { label: "Customization", to: "/customization" },
-              { label: "How to Order", to: "/how-to-order" }
+              { label: "Home", href: "/" },
+              { label: "Products", href: "/products" },
+              { label: "Manufacturing", href: "/manufacturing" },
+              { label: "Customization", href: "/customization" },
+              { label: "How to Order", href: "/how-to-order" }
             ].map((link, idx) => (
               <li key={idx}>
-                <Link to={link.to} className="text-white/30 hover:text-primary transition-all flex items-center justify-center sm:justify-start group">
+                <Link href={link.href} className="text-white/30 hover:text-primary transition-all flex items-center justify-center sm:justify-start group">
                   <span>{link.label}</span>
                   <ArrowUpRight size={14} className="ml-2 opacity-0 group-hover:opacity-100 -translate-y-1 translate-x-1 transition-all" />
                 </Link>
@@ -84,13 +86,13 @@ const Footer = () => {
           <h4 className="text-[9px] md:text-[10px] font-black text-white uppercase mb-8 md:mb-10 tracking-[0.3em] md:tracking-[0.4em] italic opacity-50">Industrial Support</h4>
           <ul className="space-y-4 md:space-y-6 text-xs md:text-sm font-bold uppercase tracking-widest italic">
             {[
-              { label: "Order Tracking", to: "/how-to-order" },
-              { label: "Size Guide", to: "/how-to-order" },
-              { label: "Shipping Policy", to: "/how-to-order" },
-              { label: "Contact Support", to: "/contact" }
+              { label: "Order Tracking", href: "/how-to-order" },
+              { label: "Size Guide", href: "/how-to-order" },
+              { label: "Shipping Policy", href: "/how-to-order" },
+              { label: "Contact Support", href: "/contact" }
             ].map((link, idx) => (
               <li key={idx}>
-                <Link to={link.to} className="text-white/30 hover:text-primary transition-all flex items-center justify-center sm:justify-start group">
+                <Link href={link.href} className="text-white/30 hover:text-primary transition-all flex items-center justify-center sm:justify-start group">
                   <span>{link.label}</span>
                   <ArrowUpRight size={14} className="ml-2 opacity-0 group-hover:opacity-100 -translate-y-1 translate-x-1 transition-all" />
                 </Link>
@@ -142,8 +144,8 @@ const Footer = () => {
           </a>
         </p>
         <div className="flex space-x-6 md:space-x-8">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>

@@ -7,10 +7,10 @@
     "node": "20.x"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -18,25 +18,17 @@
     "axios": "^1.13.6",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.577.0",
+    "next": "14.2.20",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.22.3"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@tailwindcss/vite": "^4.2.1",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.4.0",
-    "tailwindcss": "^4.2.1",
-    "vite": "^5.4.15"
+    "@tailwindcss/postcss": "^4.0.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^4.0.0"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
+  "description": "Enterprise SEO Optimized Sportswear Manufacturer Website",
+  "main": "next.config.mjs",
   "keywords": [],
   "author": "",
   "license": "ISC"

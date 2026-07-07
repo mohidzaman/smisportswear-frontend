@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link, Outlet } from 'react-router-dom';
 import { LayoutDashboard, Users, ShoppingBag, Image as ImageIcon, LogOut, Menu, X } from 'lucide-react';

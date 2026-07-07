@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { X, Maximize2, Search, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -117,7 +119,7 @@ const Gallery = () => {
                     <h4 className="text-xl md:text-2xl font-black text-white mb-4 md:mb-6 uppercase tracking-tighter italic leading-none">{img.title}</h4>
                     <div className="flex items-center text-white text-[9px] md:text-[10px] font-black tracking-[0.2em] space-x-3">
                       <div className="p-2 border border-white/20 rounded-full flex-shrink-0">
-                        <Maximize2 size={10} md:size={12} className="group-hover:rotate-90 transition-transform duration-500" />
+                        <Maximize2 size={10} className="group-hover:rotate-90 transition-transform duration-500" />
                       </div>
                       <span>EXPLORE PROJECT</span>
                     </div>
@@ -155,7 +157,7 @@ const Gallery = () => {
               animate={{ rotate: 0, opacity: 1 }}
               className="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-primary transition-colors z-[9510]"
             >
-              <X size={32} md:size={40} strokeWidth={3} />
+              <X size={32} strokeWidth={3} />
             </motion.button>
             
             <div className="max-w-[1400px] w-full h-full flex flex-col items-center justify-center relative" onClick={(e) => e.stopPropagation()}>

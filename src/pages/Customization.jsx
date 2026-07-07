@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Palette, Ruler, Layout, PenTool, CheckCircle, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -154,7 +156,7 @@ const Customization = () => {
               className="btn-primary py-4 md:py-6 px-10 md:px-12 flex items-center justify-between group shadow-xl w-full sm:w-fit text-[10px] md:text-sm"
             >
               <span className="tracking-[0.2em] md:tracking-[0.4em]">VIEW RECENT WORK</span>
-              <ArrowRight size={18} md:size={20} className="group-hover:translate-x-2 transition-transform duration-500 flex-shrink-0 ml-4" />
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-500 flex-shrink-0 ml-4" />
             </motion.a>
           </div>
         </motion.div>
@@ -183,7 +185,7 @@ const Customization = () => {
                   className="btn-primary w-full sm:w-auto px-10 md:px-16 py-4 md:py-6 group flex items-center justify-center space-x-4 md:space-x-6"
                 >
                   <span className="tracking-[0.2em] md:tracking-[0.4em]">GET CUSTOM QUOTE</span>
-                  <ArrowRight size={20} md:size={22} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
+                  <ArrowRight size={20} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
                 </motion.a>
                 
                 <motion.a 
@@ -195,7 +197,7 @@ const Customization = () => {
                   className="flex items-center space-x-4 md:space-x-6 text-white hover:text-primary transition-colors duration-500 font-black tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase italic"
                 >
                   <span>CHAT WITH DESIGNER</span>
-                  <MessageCircle size={22} md:size={24} className="text-[#25D366]" />
+                  <MessageCircle size={22} className="text-[#25D366]" />
                 </motion.a>
               </div>
             </div>

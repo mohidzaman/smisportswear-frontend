@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C1121F;
+  --color-accent: #1AFF00;
+  --color-background-dark: #0B0B0B;
+  --color-background-alt: #16181D;
+  --font-heading: "Montserrat", "Oswald", "Inter", sans-serif;
+  --font-body: "Inter", "SF Pro Display", "Roboto", sans-serif;
+  
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 15px rgba(26, 255, 0, 0.1);
+  --radius-apple: 1.25rem;
+}
+
+@layer base {
+  :root {
+    --primary: #C1121F;
+    --accent: #1AFF00;
+    --bg-dark: #0B0B0B;
+    --bg-alt: #16181D;
+  }
+
+  html, body {
+    @apply bg-background-dark text-white font-body selection:bg-primary/30 selection:text-white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-[-0.04em] font-black;
+  }
+
+  section {
+    @apply py-16 md:py-32;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative overflow-hidden bg-primary text-white font-black py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-[1.25rem] transition-all duration-500 uppercase tracking-[0.2em] text-[8px] md:text-[10px] shadow-[0_15px_30px_rgba(193,18,31,0.25)] hover:shadow-[0_20px_40px_rgba(193,18,31,0.4)] focus:outline-none focus:ring-2 focus:ring-primary/40 active:scale-[0.98];
+  }
+  
+  .btn-secondary {
+    @apply border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white font-black py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-[1.25rem] transition-all duration-500 uppercase tracking-[0.2em] text-[8px] md:text-[10px] focus:outline-none focus:ring-2 focus:ring-white/10 active:scale-[0.98];
+  }
+
+  .nav-link {
+    @apply relative text-white/50 hover:text-white transition-all duration-500 py-2 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em];
+  }
+
+  .card-premium {
+    @apply bg-background-alt/50 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 hover:border-white/10 transition-all duration-700 hover:shadow-premium;
+  }
+
+  .input-premium {
+    @apply w-full bg-white/[0.03] border border-white/5 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 focus:outline-none focus:border-accent/40 focus:ring-4 focus:ring-accent/5 transition-all duration-500 placeholder:text-white/10 text-xs md:text-sm font-medium;
+  }
+
+  .glass-apple {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/5 shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 30px rgba(193, 18, 31, 0.4);
+  }
+  
+  .hover-card-elite {
+    @apply transition-all duration-700 hover:scale-[1.02] hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] hover:border-white/20;
+  }
+  
+  .section-elite {
+    @apply py-16 sm:py-32 lg:py-48;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 25px rgba(26, 255, 0, 0.3);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.6; filter: brightness(1.2); }
+}

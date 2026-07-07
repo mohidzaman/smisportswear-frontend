@@ -1,14 +1,16 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://smisportswear-backend-production.up.railway.app/api',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://smisportswear-backend-production.up.railway.app/api',
 });
 
 // Add a request interceptor to include the auth token in all requests
 API.interceptors.request.use((config) => {
-  const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
-  if (adminInfo && adminInfo.token) {
-    config.headers.Authorization = `Bearer ${adminInfo.token}`;
+  if (typeof window !== 'undefined') {
+    const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
+    if (adminInfo && adminInfo.token) {
+      config.headers.Authorization = `Bearer ${adminInfo.token}`;
+    }
   }
   return config;
 });
@@ -30,7 +32,7 @@ API.interceptors.response.use(
                            error.config?.url?.includes('/leads') || 
                            error.config?.url?.includes('/products') ||
                            error.config?.url?.includes('/gallery');
-      if (isAdminRoute && localStorage.getItem('adminInfo')) {
+      if (isAdminRoute && typeof window !== 'undefined' && localStorage.getItem('adminInfo')) {
         console.warn('🔒 [AUTH] Token expired or invalid. Logging out...');
         localStorage.removeItem('adminInfo');
         window.location.href = '/admin/login';

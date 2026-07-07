@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Cpu, Scissors, Printer, Layers, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -95,7 +97,7 @@ const Manufacturing = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12"
             >
-              <Cpu size={12} md:size={14} className="fill-primary" />
+              <Cpu size={12} className="fill-primary" />
               <span>TIER 1 GLOBAL PRODUCTION</span>
             </motion.div>
             
@@ -166,7 +168,7 @@ const Manufacturing = () => {
                     className="glass-apple p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] group hover:bg-white/[0.05] transition-all duration-700 text-center sm:text-left"
                   >
                     <div className="p-3 bg-primary/10 rounded-2xl text-primary w-fit mb-6 shadow-glow border border-primary/20 mx-auto sm:mx-0">
-                      <CheckCircle2 size={20} md:size={24} />
+                      <CheckCircle2 size={20} />
                     </div>
                     <span className="text-white/60 font-black uppercase tracking-[0.15em] md:tracking-widest text-[9px] md:text-[11px] leading-relaxed italic">
                       {text}
@@ -217,7 +219,7 @@ const Manufacturing = () => {
                   className="btn-primary w-full sm:w-auto px-10 md:px-16 py-4 md:py-6 group flex items-center justify-center space-x-4 md:space-x-6"
                 >
                   <span className="tracking-[0.2em] md:tracking-[0.4em]">GET FACTORY QUOTE</span>
-                  <ArrowRight size={20} md:size={22} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
+                  <ArrowRight size={20} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
                 </motion.a>
                 
                 <motion.a 
@@ -229,7 +231,7 @@ const Manufacturing = () => {
                   className="flex items-center space-x-4 md:space-x-6 text-white hover:text-primary transition-colors duration-500 font-black tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase italic"
                 >
                   <span>TALK TO PRODUCTION MANAGER</span>
-                  <MessageCircle size={22} md:size={24} className="text-[#25D366]" />
+                  <MessageCircle size={22} className="text-[#25D366]" />
                 </motion.a>
               </div>
             </div>

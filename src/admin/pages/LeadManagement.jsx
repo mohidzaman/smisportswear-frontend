@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import API from '../../api/axios';
 import { Download, Filter, Search, MoreVertical, Trash2, Trash, Check, X } from 'lucide-react';

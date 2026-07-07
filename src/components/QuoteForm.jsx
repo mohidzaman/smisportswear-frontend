@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { Send, CheckCircle, ArrowRight, UploadCloud } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -95,7 +97,7 @@ const QuoteForm = () => {
           className="flex justify-center mb-8 md:mb-10"
         >
           <div className="p-6 md:p-8 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_30px_rgba(193,18,31,0.2)]">
-            <CheckCircle size={48} md:size={80} className="text-primary" />
+            <CheckCircle size={48} className="text-primary" />
           </div>
         </motion.div>
         <h3 className="text-2xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase tracking-tighter italic">REQUEST RECEIVED</h3>
@@ -191,7 +193,7 @@ const QuoteForm = () => {
             <input type="file" name="uploadedFile" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
             <div className="w-full bg-white/[0.03] border border-dashed border-white/10 rounded-2xl py-4 md:py-6 px-6 md:px-10 flex items-center justify-between group-hover:border-primary/40 group-hover:bg-white/[0.05] transition-all duration-500">
               <span className="text-[8px] md:text-[10px] font-black text-white/20 uppercase tracking-[0.1em] md:tracking-[0.2em] italic truncate pr-4">Browse Design...</span>
-              <UploadCloud size={18} md:size={20} className="text-white/20 group-hover:text-primary transition-colors duration-500 flex-shrink-0" />
+              <UploadCloud size={18} className="text-white/20 group-hover:text-primary transition-colors duration-500 flex-shrink-0" />
             </div>
           </div>
         </motion.div>
@@ -214,7 +216,7 @@ const QuoteForm = () => {
           {loading ? (
             <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
           ) : (
-            <Send size={18} md:size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 ease-apple flex-shrink-0" />
+            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 ease-apple flex-shrink-0" />
           )}
         </motion.button>
       </motion.div>

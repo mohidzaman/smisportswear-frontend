@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { MessageSquare, FileCheck, Settings, Truck, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -62,7 +64,7 @@ const HowToOrder = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12"
             >
-              <Truck size={12} md:size={14} className="fill-primary" />
+              <Truck size={12} className="fill-primary" />
               <span>STREAMLINED LOGISTICS</span>
             </motion.div>
             
@@ -114,7 +116,7 @@ const HowToOrder = () => {
                   </p>
                   <div className="flex items-center justify-center lg:justify-start space-x-4 md:space-x-6 text-primary font-black text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase group-hover:translate-x-4 transition-all duration-700 cursor-pointer italic">
                     <span className="border-b-2 border-primary/20 pb-1 md:pb-2 group-hover:border-primary transition-all">{step.action}</span>
-                    <ArrowRight size={20} md:size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
+                    <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-500" />
                   </div>
                 </div>
               </motion.div>
@@ -146,7 +148,7 @@ const HowToOrder = () => {
                   className="btn-primary w-full sm:w-auto px-10 md:px-16 py-4 md:py-6 group flex items-center justify-center space-x-4 md:space-x-6"
                 >
                   <span className="tracking-[0.2em] md:tracking-[0.4em]">INITIATE ORDER</span>
-                  <ArrowRight size={20} md:size={22} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
+                  <ArrowRight size={20} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple flex-shrink-0" />
                 </motion.a>
                 
                 <motion.a 
@@ -158,7 +160,7 @@ const HowToOrder = () => {
                   className="flex items-center space-x-4 md:space-x-6 text-white hover:text-primary transition-colors duration-500 font-black tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase italic"
                 >
                   <span>LIVE LOGISTICS SUPPORT</span>
-                  <MessageCircle size={22} md:size={24} className="text-[#25D366]" />
+                  <MessageCircle size={22} className="text-[#25D366]" />
                 </motion.a>
               </div>
             </div>

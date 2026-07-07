@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const PromoPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -86,7 +88,7 @@ const PromoPopup = () => {
               </div>
               
               <Link 
-                to="/contact"
+                href="/contact"
                 onClick={handleClose}
                 className="btn-primary w-full group flex items-center justify-center space-x-3 py-4 sm:py-5"
               >

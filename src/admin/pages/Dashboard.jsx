@@ -1,12 +1,14 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import API from '../../api/axios';
-import { TrendingUp, Clock, Globe, LayoutDashboard } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { TrendingUp, Clock, Globe } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState({ total: 0, new: 0, processing: 0 });
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -80,9 +82,9 @@ const AdminDashboard = () => {
          <div className="bg-background-alt p-8 rounded-3xl border border-white/5">
             <h4 className="text-white font-black uppercase tracking-tighter text-lg mb-6">Quick Actions</h4>
             <div className="grid grid-cols-2 gap-4 text-center">
-              <button onClick={() => navigate('/admin/leads')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">MANAGE LEADS</button>
-              <button onClick={() => navigate('/admin/products')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">ADD PRODUCT</button>
-              <button onClick={() => navigate('/admin/gallery')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">UPLOAD PHOTO</button>
+              <button onClick={() => router.push('/admin/leads')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">MANAGE LEADS</button>
+              <button onClick={() => router.push('/admin/products')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">ADD PRODUCT</button>
+              <button onClick={() => router.push('/admin/gallery')} className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">UPLOAD PHOTO</button>
               <button className="p-4 bg-background-dark border border-white/5 rounded-2xl text-xs font-bold text-gray-400 hover:border-primary hover:text-white transition-all">GENERATE REPORT</button>
             </div>
          </div>

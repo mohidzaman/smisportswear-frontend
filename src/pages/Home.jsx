@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { Shield, Globe, Paintbrush, Zap, ArrowRight, CheckCircle, ChevronRight, MessageCircle, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -355,7 +357,7 @@ const Home = () => {
                     className="flex items-center space-x-4 md:space-x-5 justify-center lg:justify-start"
                   >
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 shadow-glow flex-shrink-0">
-                      <CheckCircle size={18} md:size={22} />
+                      <CheckCircle size={18} />
                     </div>
                     <span className="text-xs md:text-sm font-black uppercase tracking-widest text-white/70 italic">{item}</span>
                   </motion.div>
@@ -371,7 +373,7 @@ const Home = () => {
                   className="btn-secondary inline-flex items-center space-x-4 md:space-x-5 border-white/5 py-4 md:py-5 px-8 md:px-10"
                 >
                   <span className="tracking-[0.2em] md:tracking-[0.3em]">LEARN OUR PROCESS</span>
-                  <ChevronRight size={18} md:size={20} />
+                  <ChevronRight size={18} />
                 </a>
               </motion.div>
             </motion.div>
@@ -472,7 +474,7 @@ const Home = () => {
              <h4 className="text-white font-black uppercase tracking-tighter text-2xl md:text-3xl mb-6 md:mb-8 italic">STILL HAVE <span className="text-primary italic">DOUBTS?</span></h4>
              <a href="https://wa.me/923425744310" className="inline-flex items-center space-x-4 md:space-x-6 text-white hover:text-primary transition-colors duration-500 font-black tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase italic">
                 <span>TALK TO A PRODUCTION EXPERT</span>
-                <MessageCircle size={20} md:size={22} className="text-[#25D366]" />
+                <MessageCircle size={20} className="text-[#25D366]" />
              </a>
           </div>
         </div>

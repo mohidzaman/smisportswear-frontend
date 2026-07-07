@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Target, Eye, Users, Factory, Award, Globe2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -129,13 +131,13 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {[
             { 
-              icon: <Target size={32} md:size={40} />, 
+              icon: <Target size={32} />, 
               title: "Our Vision", 
               desc: "To become the global benchmark for factory-direct sportswear, where every team accesses elite-level technology.",
               gradient: "from-primary/20 to-transparent"
             },
             { 
-              icon: <Eye size={32} md:size={40} />, 
+              icon: <Eye size={32} />, 
               title: "Our Mission", 
               desc: "Empowering athletic performance through precision manufacturing, innovative design, and unwavering quality commitment.",
               gradient: "from-white/10 to-transparent"
@@ -214,7 +216,7 @@ const About = () => {
               className="bg-white text-black font-black py-4 md:py-6 px-10 md:px-16 rounded-xl md:rounded-2xl flex items-center justify-center space-x-4 md:space-x-6 mx-auto w-full sm:w-fit tracking-[0.2em] md:tracking-[0.4em] uppercase group text-[10px] md:text-sm"
             >
               <span>WORK WITH OUR FACTORY</span>
-              <ArrowRight size={18} md:size={20} className="group-hover:translate-x-3 transition-transform duration-500" />
+              <ArrowRight size={18} className="group-hover:translate-x-3 transition-transform duration-500" />
             </motion.a>
           </motion.div>
         </div>

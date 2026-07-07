@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { ArrowRight, Filter, Zap, Shield, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -104,7 +106,7 @@ const Products = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="inline-flex items-center space-x-3 px-4 md:px-5 py-2 md:py-2.5 rounded-xl md:rounded-2xl bg-white/[0.03] border border-white/10 text-primary text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12 mx-auto lg:mx-0"
               >
-                <Zap size={12} md:size={14} className="fill-primary" />
+                <Zap size={12} className="fill-primary" />
                 <span>MASTER CATALOG 2025</span>
               </motion.div>
               
@@ -125,7 +127,7 @@ const Products = () => {
               className="flex items-center justify-center lg:justify-end"
             >
               <button className="group flex items-center space-x-4 md:space-x-6 px-8 md:px-10 py-4 md:py-5 bg-white/[0.02] border border-white/10 rounded-2xl md:rounded-[2.5rem] text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-700 shadow-premium">
-                <Filter size={16} md:size={18} className="group-hover:rotate-180 transition-transform duration-700" />
+                <Filter size={16} className="group-hover:rotate-180 transition-transform duration-700" />
                 <span>FILTER SPECTRUM</span>
               </button>
             </motion.div>
@@ -292,7 +294,7 @@ const Products = () => {
                   className="btn-primary w-full sm:w-auto px-10 md:px-16 py-5 md:py-6 group flex items-center justify-center space-x-4 md:space-x-6"
                 >
                   <span className="tracking-[0.3em] md:tracking-[0.4em]">REQUEST QUOTATION</span>
-                  <ArrowRight size={20} md:size={22} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple" />
+                  <ArrowRight size={20} className="group-hover:translate-x-3 transition-transform duration-500 ease-apple" />
                 </motion.a>
                 
                 <motion.a 
@@ -304,7 +306,7 @@ const Products = () => {
                   className="flex items-center space-x-4 md:space-x-6 text-white hover:text-primary transition-colors duration-500 font-black tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] uppercase italic"
                 >
                   <span>TALK ON WHATSAPP</span>
-                  <MessageCircle size={22} md:size={24} className="text-[#25D366]" />
+                  <MessageCircle size={22} className="text-[#25D366]" />
                 </motion.a>
               </div>
             </div>
